@@ -1,0 +1,527 @@
+:root {
+  --padding: 4vw;
+  --black: #1c1d20;
+  --white: #fff;
+  --secondaryWhite: #b2b2b2;
+  --accent: #7b95e3;
+}
+
+body {
+  margin: 0;
+  font-family: "DM sans";
+  font-weight: 500;
+  -webkit-font-smoothing: antialiased;
+  height: 400vh;
+  overflow-x: hidden;
+  -ms-overflow-style: none; /* IE e Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+a {
+  text-decoration: none;
+  color: black;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+/* #region Header */
+
+header {
+  width: 100%;
+  height: 6.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: row;
+  padding: calc(var(--padding) / 2) calc(var(--padding) / 2);
+  box-sizing: border-box;
+  transform: translate(0, 0) rotate(0.001deg);
+  font-size: 1.4rem;
+  background-color: transparent;
+  position: fixed;
+  z-index: 999;
+}
+
+header nav {
+  display: flex;
+  flex-direction: row;
+}
+
+.Link {
+  width: 3.125rem;
+  height: 1rem;
+  color: var(--black);
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  position: absolute;
+}
+
+nav .OutRange {
+  /* this is the range*/
+  width: calc(3.125rem + 3.125rem); /* 25px in ogni direzione*/
+  height: calc(1rem + 3.125rem);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+nav .OutRange:hover .textblock:after {
+  width: 110%;
+  left: 0%;
+}
+
+.textblock:after {
+  content: "";
+  pointer-events: none;
+  bottom: -0.7rem;
+  left: 50%;
+  position: absolute;
+  width: 0%;
+  height: 2px;
+  border-radius: 50px;
+  background-color: var(--black);
+  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-duration: 400ms;
+}
+/* #endregion */
+
+/* #region Hamburger Menu */
+
+menu.-active {
+  transform: translateX(0%);
+}
+
+.hamButton {
+  width: 85px;
+  height: 85px;
+  background-color: var(--black);
+  border-radius: 50%;
+  position: absolute;
+  overflow: hidden;
+  z-index: 1001;
+  border: solid 1px #323030;
+}
+
+.hovercolor {
+  height: 0%;
+  background-color: var(--accent);
+  border-radius: 50%;
+  position: absolute;
+  top: auto;
+  bottom: 0%;
+  left: 0%;
+  right: 0%;
+  transition: 0.4s cubic-bezier(0.1, 1, 0.6, 1);
+}
+
+ham.OutRange {
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  width: 150px;
+  height: 150px;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
+  z-index: 1001;
+  display: flex;
+  transform: scale(0%);
+}
+
+ham .menu-btn_toggle {
+  width: 100%;
+  height: 100%;
+  padding: calc((100% - 24px) / 2);
+}
+
+ham .menu-btn_toggle span {
+  background: var(--white);
+}
+
+.menu-toggle {
+  display: none;
+  margin-right: 1.5625rem;
+  padding: 0;
+}
+
+.menu-btn_toggle {
+  position: relative;
+  padding: 0;
+  border: none;
+  background-color: transparent;
+  display: block;
+  width: 24px;
+  height: 24px;
+  z-index: 98;
+}
+
+.menu-btn_toggle span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  margin: 6px 0;
+  position: relative;
+  top: 0;
+  background: var(--black);
+  transition: top 0.2s 0.3s, transform 0.3s 0s, opacity 0.3s 0.1s,
+    background 0.4s;
+}
+
+.menu-btn_toggle.-active span {
+  transition: top 0.2s, transform 0.3s 0.3s, opacity 0.2s 0.3s;
+}
+
+.menu-btn_toggle.-active span:first-child {
+  top: 4px;
+  transform: rotate(45deg);
+}
+
+.menu-btn_toggle.-active span:last-child {
+  top: -4px;
+  transform: rotate(-45deg);
+}
+
+@media screen and (max-width: 743px) {
+  header nav {
+    display: none;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+}
+
+/* #endregion */
+
+/* #region Menu */
+
+menu {
+  background-color: var(--black);
+  position: fixed;
+  margin: 0;
+  left: auto;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  transform: translateX(100%);
+  transition: ease 0.5s;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  z-index: 1000;
+}
+
+@media screen and (max-width: 743px) {
+  menu {
+    left: 0vw;
+  }
+}
+
+.MenuSections {
+  font-size: 1.25rem;
+  margin-left: 4.375rem;
+  color: var(--secondaryWhite);
+}
+
+.Contacts .MenuSections {
+  margin-left: 0;
+}
+
+.MenuLinks {
+  margin-top: 1rem;
+  margin-bottom: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: min-content;
+}
+
+.tertiary-button {
+  text-decoration: none;
+  font-size: 30px;
+  color: var(--white);
+  white-space: nowrap;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0px;
+  transition: color 0.2s ease;
+}
+
+menu .OutRange {
+  padding: 0 4.375rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  width: 100%;
+}
+
+menu .OutRange:hover .tertiary-button {
+  color: var(--accent);
+}
+
+.tertiary-button .btn-title {
+  position: relative;
+  padding: 0 0.16em 0 0;
+  overflow: hidden;
+  z-index: 2;
+  font-size: 4.375rem;
+}
+
+.Contacts .OutRange {
+  padding: 1.5rem 0;
+  margin-left: 1.5rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.Contacts {
+  height: calc(
+    30px + 0.5em + 6rem
+  ); /* sarebbe il padding + text height + half row height*/
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin: 0 4.375rem;
+}
+
+.Contacts .GiTwrapper {
+  box-sizing: border-box;
+  padding: 2.2rem 0;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  flex-direction: column;
+  height: 100%;
+}
+
+.GiTwrapper {
+  transform: translateY(
+    0.5rem
+  ); /* serve per confermare il padding dell Outrange*/
+}
+
+.GiTwrapper .mail {
+  font-size: 16px;
+  color: var(--accent);
+}
+
+.GiTwrapper .OutRange {
+  padding: 0.5rem 0;
+  margin-left: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.secondary-button {
+  text-decoration: none;
+  font-size: 30px;
+  line-height: 1em;
+  color: var(--white);
+  overflow: hidden;
+  border-radius: 100px;
+  transition: transform 0.3s;
+  padding: 1.5rem 3rem;
+  box-sizing: border-box;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin: 0px;
+  border: solid;
+}
+
+.secondary-button .btn-ripple {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  overflow: hidden;
+}
+
+.secondary-button .btn-ripple span {
+  display: block;
+  width: 100%;
+  height: 100%;
+  transform: translateY(101%);
+  background-color: var(--white);
+  border-radius: 50% 50% 0 0;
+  transition: transform 0.5s cubic-bezier(0.4, 0, 0, 1),
+    border-radius 0.5s cubic-bezier(0.4, 0, 0, 1);
+}
+
+.secondary-button .btn-title {
+  position: relative;
+  padding: 0 0.16em 0 0;
+  overflow: hidden;
+  z-index: 2;
+}
+
+.secondary-button .btn-title span {
+  display: block;
+  transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.secondary-button .btn-title span:after {
+  content: attr(data-text);
+  position: absolute;
+  top: 110%;
+  left: 0;
+  color: var(--black);
+}
+
+/*Effetto Bounce*/
+@media (pointer: fine) {
+  .secondary-button:hover .btn-title span {
+    transform: translateY(-110%);
+  }
+}
+
+@media (pointer: fine) {
+  .secondary-button:hover .btn-ripple span {
+    border-radius: 0;
+    transform: translateY(0);
+    transition-duration: 0.5s, 0.9s;
+  }
+}
+
+/* #endregion */
+
+/* #region Scrolling Text */
+
+@font-face {
+  font-family: "Horgen";
+  src: url("fonts/Devant\ Horgen.otf");
+}
+
+.wrapperRollingText {
+  white-space: nowrap;
+  margin-top: 100px; /*deve rimanere fisso, ho impostato la navbar a fixed*/
+}
+
+.rollingText {
+  -webkit-font-smoothing: none;
+  font-family: "Horgen";
+  font-size: 30vw;
+  color: var(--black);
+  display: inline-block;
+}
+
+.wrapperCoord {
+  box-sizing: border-box;
+  width: 100%;
+  padding: calc(var(--padding) / 2) var(--padding);
+  padding-top: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 1.4rem;
+  color: var(--black);
+}
+
+.scrollCord .icon {
+  background-color: white;
+  z-index: 1;
+}
+
+.scrollCord {
+  width: 285px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.scrollCord .TextToReveal,
+.scrollCord .Text,
+.scrollCord .icon div {
+  transition: transform 0.6s cubic-bezier(0.4, 0, 0, 1);
+  font-size: 1.4rem;
+}
+
+.scrollCord .icon div {
+  display: grid;
+  place-items: center;
+}
+
+.scrollCord:hover .Text {
+  transform: translateX(calc(-100% - 5px));
+}
+
+.scrollCord:hover .TextToReveal {
+  transform: translateX(-260px);
+}
+
+.scrollCord:hover .icon div {
+  transform: rotate(-360deg);
+}
+
+.DiscoverWrappre {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.DiscoverWrappre img {
+  height: 1.4rem;
+  margin-left: 10px;
+  animation: bounce 4s infinite;
+}
+
+@keyframes bounce {
+  0%,
+  80%,
+  90%,
+  100% {
+    transform: translateY(0);
+  }
+  85% {
+    transform: translateY(-10px);
+  }
+  95% {
+    transform: translateY(-5px);
+  }
+}
+
+/* #endregion */
+
+/* #region main */
+.extendSection {
+  background-color: var(--black);
+  margin: 0 var(--padding);
+  width: calc(100% - var(--padding) * 2);
+  border-radius: 10px;
+  height: 400vh;
+  color: var(--white);
+}
+
+.mainContent {
+  transition: filter ease 0.5s;
+}
+
+.mainContent.-inverted {
+  filter: invert(0.1);
+}
+
+.ThisCaseStudy{
+  margin: 0 var(--padding);
+  width: calc(100% - var(--padding) * 2);
+  height: auto;
+  border-radius: 50px;
+  background-color: var(--black);
+}
+
+/* #endregion */
