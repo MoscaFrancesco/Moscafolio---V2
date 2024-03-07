@@ -513,7 +513,8 @@ menu .OutRange:hover .tertiary-button {
 }
 
 .mainContent.-inverted {
-  filter: invert(0.1);
+  display: block;
+  /*filter: invert(0.1);*/
 }
 
 .ThisCaseStudy{
