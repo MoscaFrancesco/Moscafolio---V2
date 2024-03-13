@@ -6,12 +6,13 @@
   --accent: #7b95e3;
 }
 
+
+
 body {
   margin: 0;
   font-family: "DM sans";
   font-weight: 500;
   -webkit-font-smoothing: antialiased;
-  height: 400vh;
   overflow-x: hidden;
   -ms-overflow-style: none; /* IE e Edge */
   scrollbar-width: none; /* Firefox */
@@ -69,7 +70,7 @@ nav .OutRange {
   align-items: center;
 }
 
-nav .OutRange:hover .textblock:after {
+.OutRange:hover .textblock:after {
   width: 110%;
   left: 0%;
 }
@@ -103,7 +104,6 @@ menu.-active {
   position: absolute;
   overflow: hidden;
   z-index: 1001;
-  border: solid 1px #323030;
 }
 
 .hovercolor {
@@ -517,12 +517,64 @@ menu .OutRange:hover .tertiary-button {
   /*filter: invert(0.1);*/
 }
 
-.ThisCaseStudy{
+.parallaxImg {
   margin: 0 var(--padding);
   width: calc(100% - var(--padding) * 2);
-  height: auto;
-  border-radius: 50px;
-  background-color: var(--black);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
+
+.parallaxImg .wrapper {
+  overflow: hidden;
+  border-radius: 20px;
+
+}
+
+.parallaxImg img {
+  width: 100%;
+  object-fit: cover;
+}
+
+.paragraph{
+  margin: 0 var(--padding);
+  width: calc(100% - var(--padding) * 2);
+  height: 90vh;
+}
+
+.FourSection{
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(2, 1fr);
+  margin-left:var(--padding);
+
+}
+
+.FourSection .wrapper{
+  width: 44vw;
+  display: flex; 
+  flex-direction: column;   
+}
+
+
+.FourSection .wrapper:nth-child(3), .FourSection .wrapper:nth-child(4){
+  margin-top: 40px;
+}
+
+.FourSection .parallaxImg{
+  margin: 0;
+  padding: 0;
+  display: block;
+  width: 44vw;
+  height: 44vw; 
+  background-color: transparent;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.FourSection .parallaxImg img {
+  width: 110%;
+}
+
 
 /* #endregion */

@@ -1,5 +1,4 @@
 let locoScroll
-
 function initMagneticButtons() {
     //select all the elements with class magnetic
     const magnets = document.querySelectorAll(".magnetic");
@@ -196,7 +195,7 @@ function initBarba(){
 
 
 
-  function  initSmoothScroll(container){
+  function  initSmoothScroll(container){ //devo fare il setup del container
     locoScroll = new LocomotiveScroll({
       el: document.querySelector("[data-scroll-container]"),
       smooth: true
@@ -228,21 +227,9 @@ function initBarba(){
     document.head.appendChild(scrollHide);
 
     /* ------------------ Dichiaro solo ora gli scroll trigger ------------------ */
-    ScrollTrigger.create({
-      scroller: "[data-scroll-container]",
-      trigger: ".HamTrigger",
-      scrub: true,
-      start: "0 70%",
-      //markers: true,
-      onEnter: () => gsap.to("ham.OutRange",{scale:1, duration:.3, ease:"power4.out",rotate: "0.001deg" }),
-      onLeaveBack: () => gsap.to("ham.OutRange",{scale:0, duration:.3, ease: "power4.out",rotate: "0.001deg"})
-    });
 
-    //Index
-    initScrollingPhrase()
+    fireScript()
 
-
-    
     /* --------------------------- Fine dichiarazione --------------------------- */
 
     // each time the window updates, we should refresh ScrollTrigger and then update LocomotiveScroll. 
@@ -304,17 +291,30 @@ function initScrollingPhrase(){
     
 }
 
+function initHamAppear(){
+  ScrollTrigger.create({
+    scroller: "[data-scroll-container]",
+    trigger: ".HamTrigger",
+    scrub: true,
+    start: "0 70%",
+    //markers: true,
+    onEnter: () => gsap.to("ham.OutRange",{scale:1, duration:.3, ease:"power4.out",rotate: "0.001deg" }),
+    onLeaveBack: () => gsap.to("ham.OutRange",{scale:0, duration:.3, ease: "power4.out",rotate: "0.001deg"})
+  });
+}
 
 
-
-
+function fireScript(){
+  initHamAppear()
+  initScrollingPhrase()
+  initMagneticButtons();
+  initCursor();
+  initMenu(); 
+}
 
 
 document.addEventListener("DOMContentLoaded", function () {
   initBarba();
-  initMagneticButtons();
-  initCursor();
-  initMenu(); 
 });
 
 
