@@ -2,7 +2,7 @@
   --padding: 4vw;
   --black: #1c1d20;
   --white: #fafafa;
-  --secondaryWhite: #b2b2b2;
+  --secondaryWhite: #fcfcfc;
   --accent: #7b95e3;
 }
 
@@ -499,14 +499,7 @@ menu .OutRange:hover .tertiary-button {
 /* #endregion */
 
 /* #region main */
-.extendSection {
-  background-color: var(--black);
-  margin: 0 var(--padding);
-  width: calc(100% - var(--padding) * 2);
-  border-radius: 10px;
-  height: 400vh;
-  color: var(--white);
-}
+
 
 .mainContent {
   transition: filter ease 0.5s;
@@ -517,6 +510,8 @@ menu .OutRange:hover .tertiary-button {
   /*filter: invert(0.1);*/
 }
 
+
+/* #region parallax */
 .parallaxImg {
   margin: 0 var(--padding);
   width: calc(100% - var(--padding) * 2);
@@ -527,7 +522,7 @@ menu .OutRange:hover .tertiary-button {
 
 .parallaxImg .wrapper {
   overflow: hidden;
-  border-radius: 20px;
+  border-radius: 1.14vw;
 
 }
 
@@ -536,45 +531,199 @@ menu .OutRange:hover .tertiary-button {
   object-fit: cover;
 }
 
+/* #endregion */
+
+
+
+
+
+/* #region paragraph */
+
 .paragraph{
   margin: 0 var(--padding);
   width: calc(100% - var(--padding) * 2);
-  height: 90vh;
-}
-
-.FourSection{
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  margin-left:var(--padding);
 
 }
 
-.FourSection .wrapper{
-  width: 44vw;
-  display: flex; 
-  flex-direction: column;   
+
+.paragraph{
+  color: var(--black);
+}
+
+.paragraph .wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%; 
+}
+
+.paragraph .wrapper2{
+  display: flex;
+  align-items: center;
+  justify-content: left;
+  gap: 3.428vw;
+}
+
+.paragraph .wrapper2 .number{
+  background-color: var(--black);
+  color: var(--white);
+  width: 6.85vw;
+  height: 6.85vw;
+  font-size: 2.28vw;
+  border-radius: 60px;
+  display: flex;
+  align-items: center;
+  justify-content:center;
+}
+.paragraph h1{
+  font-size: 7.314vw;
+}
+
+.paragraph p{
+  font-size: 1.6vw;
+}
+
+.paragraph span{
+  font-size: 2.74vw;
+}
+
+/* #endregion */
+
+/* #region siteSections */
+
+.siteSections {
+  padding: 15vw 0;
+}
+
+.siteSections wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap:0.914vw;
+}
+
+.siteSections  wrapper > img{
+  border-radius: 1.14vw;
 }
 
 
-.FourSection .wrapper:nth-child(3), .FourSection .wrapper:nth-child(4){
-  margin-top: 40px;
+ .wrapper1 > img{
+  width: 61vw;
 }
 
-.FourSection .parallaxImg{
+.upper{
+  width: 61vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.upper h1{
+  font-size: 3.5vw;
   margin: 0;
-  padding: 0;
-  display: block;
-  width: 44vw;
-  height: 44vw; 
-  background-color: transparent;
-  border-radius: 20px;
-  overflow: hidden;
 }
 
-.FourSection .parallaxImg img {
-  width: 110%;
+.upper .VisitWebsite{
+  display: flex;
+  align-items: center;
+  align-self: flex-end;
+  justify-content: center;
+  margin: 0;
+  font-size: 1.43vw;
 }
 
+.upper .VisitWebsite img{
+  height: 1.43vw;
+}
+
+.lower{
+  width: 61vw;
+  font-size: 1.43vw;
+}
+
+
+.doubleWrapper{
+  margin: 0 var(--padding);
+  width: calc(100% - var(--padding) * 2);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  padding: 15vw 0 calc(15vw + 35vh)  0;
+}
+
+
+.wrapper2 > img{
+  width: 35.37vw;
+}
+
+.wrapper2 .upper{
+  width: 35.37vw;
+}
+.wrapper2 .lower{
+  width: 35.37vw;
+}
+
+
+.wrapper3{
+  transform: translateY(35vh);
+}
+
+.wrapper3 > img{
+  width: 41.42vw;
+}
+
+.wrapper3 .upper{
+  width: 41.42vw;
+}
+.wrapper3 .lower{
+  width: 41.42vw;
+}
+
+
+
+.wrapper4{
+  transform: translateX(-5%);
+}
+
+.wrapper4 > img{
+  width: 50%;
+}
+
+.wrapper4 .upper{
+  width: 50%;
+}
+.wrapper4 .lower{
+  width: 50%;
+}
+
+
+/* #endregion */
+
+/* #region blackSection */
+
+.blackSection{
+  box-sizing: border-box;
+  padding-top: var(--padding);  
+  background-color: var(--black);
+  width: 100%;
+}
+
+.blackSection .paragraph{
+  color: var(--white);
+}
+
+.blackSection .paragraph h1{
+  color: var(--white);
+  margin-top: 0;
+
+}
+
+.blackSection .paragraph .wrapper2 .number{
+  background-color: var(--white);
+  color: var(--black);
+}
+/* #endregion */
 
 /* #endregion */
