@@ -533,14 +533,11 @@ menu .OutRange:hover .tertiary-button {
 
 /* #endregion */
 
-
-
-
-
 /* #region paragraph */
 
 .paragraph{
   margin: 0 var(--padding);
+  margin-top: 15vh;
   width: calc(100% - var(--padding) * 2);
 
 }
@@ -603,21 +600,32 @@ menu .OutRange:hover .tertiary-button {
   gap:0.914vw;
 }
 
-.siteSections  wrapper > img{
+.siteSections wrapper a {
+  overflow: hidden;
   border-radius: 1.14vw;
+  padding: 0;
+  margin: 0;
 }
 
-
- .wrapper1 > img{
-  width: 61vw;
+.siteSections wrapper a > img{
+  width: 100%;
+  position: relative;
+  transition: 1s cubic-bezier(0.1, 1, 0.6, 1);
+  padding: 0;
+  margin: 0;
+  transform: scale(1.07);
 }
+
+.siteSections wrapper a:hover > img{
+  transform: scale(1.12);
+}
+
 
 .upper{
   width: 61vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
-
 }
 
 .upper h1{
@@ -636,6 +644,7 @@ menu .OutRange:hover .tertiary-button {
 
 .upper .VisitWebsite img{
   height: 1.43vw;
+  margin-left: 10px;
 }
 
 .lower{
@@ -653,8 +662,11 @@ menu .OutRange:hover .tertiary-button {
   padding: 15vw 0 calc(15vw + 35vh)  0;
 }
 
+.wrapper1 > a{
+  width: 61vw;
+}
 
-.wrapper2 > img{
+.wrapper2 > a{
   width: 35.37vw;
 }
 
@@ -670,7 +682,7 @@ menu .OutRange:hover .tertiary-button {
   transform: translateY(35vh);
 }
 
-.wrapper3 > img{
+.wrapper3 > a{
   width: 41.42vw;
 }
 
@@ -681,13 +693,11 @@ menu .OutRange:hover .tertiary-button {
   width: 41.42vw;
 }
 
-
-
 .wrapper4{
   transform: translateX(-5%);
 }
 
-.wrapper4 > img{
+.wrapper4 > a{
   width: 50%;
 }
 
