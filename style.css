@@ -6,8 +6,6 @@
   --accent: #7b95e3;
 }
 
-
-
 body {
   margin: 0;
   font-family: "DM sans";
@@ -498,19 +496,6 @@ menu .OutRange:hover .tertiary-button {
 
 /* #endregion */
 
-/* #region main */
-
-
-.mainContent {
-  transition: filter ease 0.5s;
-}
-
-.mainContent.-inverted {
-  display: block;
-  /*filter: invert(0.1);*/
-}
-
-
 /* #region parallax */
 .parallaxImg {
   margin: 0 var(--padding);
@@ -711,6 +696,32 @@ menu .OutRange:hover .tertiary-button {
 
 /* #endregion */
 
+/* #region siteSections */
+
+.RollingLink h1 {
+  margin: 0;
+  font-size: 20vw;
+  line-height: 0.9em;
+  text-transform: uppercase;
+  white-space: nowrap;
+
+
+}
+
+.RollingLink .panel-auto {
+  height: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.RollingLink{
+  padding-bottom: 15vw;
+}
+
+/* #endregion */
+
 /* #region blackSection */
 
 .blackSection{
@@ -736,4 +747,12 @@ menu .OutRange:hover .tertiary-button {
 }
 /* #endregion */
 
-/* #endregion */
+
+/*
+TODO List:
+- modificare le scritte e i colori di cuberto mouse follower per le sezioni e la scritta che scorre
+- finire works
+- finire scrolling works
+- inventarsi qualcosa per un rimando all'about me
+- footer
+*/
