@@ -200,6 +200,8 @@ function initBarba(){
       el: document.querySelector("[data-scroll-container]"),
       smooth: true
     });
+
+    
     window.onresize = locoScroll.update();
 
     // each time Locomotive Scroll updates, tell ScrollTrigger to update too (sync positioning)
