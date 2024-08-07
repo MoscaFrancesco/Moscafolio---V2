@@ -86,39 +86,29 @@ function initMenu(){
   console.log("inizializzo Menu")
 
   let hamButtonToggle = document.querySelector(".hamButton button.menu-btn")
-  let fpButtonsToggle = document.querySelector(".menu-toggle button.menu-btn");
   let Menu = document.querySelector("menu");
   let Main = document.querySelector(".mainContent")
 
   hamButtonToggle.addEventListener("click", () => {
-    Menu.classList.toggle("-active");
-    Main.classList.toggle("-inverted");
     
     if (isOpen){
-      gsap.to(".hamButton", {background:"var(--black)"})
-      gsap.to("ham.OutRange",{scale:0, duration:.3, ease: "power4.out",rotate: "0.001deg"})
-      fpButtonsToggle.classList.toggle("-active");
-      
+      gsap.to(".hamButton", {background:"var(--black)"}) //rende il bg nero
+      hamButtonToggle.classList.remove("-active");
+      Menu.classList.remove("-active");
+      gsap.to(".mainContent", { filter: "blur(0px)" });
+      locoScroll.start();
       isOpen = false
     }
     else{
-      hamButtonToggle.classList.toggle("-active");
+      isOpen = true;
+      hamButtonToggle.classList.add("-active");
+      Menu.classList.add("-active");
+      gsap.to(".mainContent", { filter: "blur(3px",duration: 0.3 });
+      locoScroll.stop();
+      
     }
   });
 
-  fpButtonsToggle.addEventListener("click", () => {
-    fpButtonsToggle.classList.toggle("-active");
-    Menu.classList.toggle("-active");
-    Main.classList.toggle("-inverted");
-
-    if (!isOpen){
-      isOpen = true
-      gsap.to("ham.OutRange",{scale:1, delay:.2, duration:.3, ease:"power4.out",rotate: "0.001deg" })
-      gsap.to(".hamButton", {background:"var(--accent)"})
-    }
-
-  });
-  
 }
 
 function initBarba(){
@@ -144,6 +134,9 @@ function initBarba(){
         });
       },
       leave(data) {
+
+
+        
         let isOpen2 = false
         if (document.querySelector("button.menu-btn.-active") != null){
           gsap.to("ham.OutRange",{scale:0, duration:.3, ease: "power4.out",rotate: "0.001deg"})
@@ -153,7 +146,7 @@ function initBarba(){
           document.querySelector(".hamButton button.menu-btn").classList.remove("-active")
           isOpen2 = true          
           gsap.to(".hamButton", {background:"var(--black)", delay: .5})
-          document.querySelector("menu").classList.toggle("-active");
+          document.querySelector("menu").classList.remove("-active");
           gsap.to(".hamButton .hovercolor", {height:0, top:0, delay: .5})
 
         }
@@ -185,9 +178,15 @@ function initBarba(){
         });
       },
       async beforeEnter(data) {
+        magnets.forEach((magnet) => {
+          const OuterMagneticRange = magnet.closest(".OutRange");
+          OuterMagneticRange.removeEventListener("mousemove", moveMagnet);
+          OuterMagneticRange.removeEventListener("mouseleave", resetMagnet);
+        });
         ScrollTrigger.getAll().forEach(t => t.kill());
         locoScroll.destroy();
         initSmoothScroll(data.next.container);
+        
       },
     }]
   })
@@ -249,49 +248,6 @@ function initCursor(){
 });
 }
 
-function initScrollingPhrase(){  
-    let direction = 1; // 1 = forward, -1 = backward scroll
-  
-    const roll1 = roll(".rollingText ", {duration: 18}),
-          scroll = ScrollTrigger.create({
-            trigger: document.querySelector('[data-scroll-container]'),
-            onUpdate(self) {
-              if (self.direction !== direction) {
-                direction *= -1;
-                gsap.to(roll1, {timeScale: direction, overwrite: true});
-              }
-            }
-          });
-  
-    // helper function that clones the targets, places them next to the original, then animates the xPercent in a loop to make it appear to roll across the screen in a seamless loop.
-    function roll(targets, vars, reverse) {
-      vars = vars || {};
-      vars.ease || (vars.ease = "none");
-      const tl = gsap.timeline({
-              repeat: -1,
-              onReverseComplete() { 
-                this.totalTime(this.rawTime() + this.duration() * 10); // otherwise when the playhead gets back to the beginning, it'd stop. So push the playhead forward 10 iterations (it could be any number)
-              }
-            }), 
-            elements = gsap.utils.toArray(targets),
-            clones = elements.map(el => {
-              let clone = el.cloneNode(true);
-              el.parentNode.appendChild(clone);
-              return clone;
-            }),
-            positionClones = () => elements.forEach((el, i) => gsap.set(clones[i], {position: "absolute", overwrite: false, top: el.offsetTop, left: el.offsetLeft + (reverse ? -el.offsetWidth : el.offsetWidth)}));
-      positionClones();
-      elements.forEach((el, i) => tl.to([el, clones[i]], {xPercent: reverse ? 100 : -100, ...vars}, 0));
-      window.addEventListener("resize", () => {
-        let time = tl.totalTime(); // record the current time
-        tl.totalTime(0); // rewind and clear out the timeline
-        positionClones(); // reposition
-        tl.totalTime(time); // jump back to the proper time
-      });
-      return tl;
-    }
-    
-}
 
 function initHamAppear(){
   ScrollTrigger.create({
@@ -308,8 +264,7 @@ function initHamAppear(){
 
 function fireScript(){
   initHamAppear()
-  initScrollingPhrase()
-  initMagneticButtons();
+    initMagneticButtons();
   initCursor();
   initMenu(); 
 }

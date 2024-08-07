@@ -1,21 +1,33 @@
 :root {
   --padding: 4vw;
-  --black: #1c1d20;
-  --white: #fafafa;
-  --secondaryWhite: #fcfcfc;
-  --accent: #7b95e3;
-  --auto-marign: 0 var(--padding);
-  --auto-width: calc(100% - var(--padding) * 2);
+  --black: #2a2a2a;
+  --white: #ffffff;
+  --secondaryWhite: #F5F2ED;
+  --accent: #2a53ce;
+
+  --border-radius: 28px;
 }
 
 body {
   margin: 0;
   font-family: "DM sans";
   font-weight: 500;
-  -webkit-font-smoothing: antialiased;
   overflow-x: hidden;
   -ms-overflow-style: none; /* IE e Edge */
   scrollbar-width: none; /* Firefox */
+}
+
+body.menuOpen{
+  background-color: red;
+  height: 100%;
+  overflow-y: hidden ;
+  filter: blur("5px");
+}
+
+html,body{
+-moz-osx-font-smoothing: grayscale;
+-webkit-font-smoothing:inherit;
+
 }
 
 a {
@@ -85,7 +97,7 @@ nav .OutRange {
   height: 2px;
   border-radius: 50px;
   background-color: var(--black);
-  transition-timing-function: cubic-bezier(0.25, 0.8, 0.25, 1);
+  transition-timing-function: ease;
   transition-duration: 400ms;
 }
 /* #endregion */
@@ -95,6 +107,8 @@ nav .OutRange {
 menu.-active {
   transform: translateX(0%);
 }
+
+
 
 .hamButton {
   width: 85px;
@@ -398,37 +412,36 @@ menu .OutRange:hover .tertiary-button {
 
 /* #endregion */
 
-/* #region Scrolling Text */
+/* #region Moscafolio Text */
 
 @font-face {
   font-family: "Horgen";
   src: url("fonts/Devant\ Horgen.otf");
 }
 
-.wrapperRollingText {
-  white-space: nowrap;
+.rollingText {
+  font-family: "Horgen";
+  font-size: 40vw;
+  color: var(--black);
   margin-top: 100px; /*deve rimanere fisso, ho impostato la navbar a fixed*/
+  white-space: nowrap;
+  display: flex;
+  justify-content: center; /* Centra il testo orizzontalmente */
+  
 }
 
-.rollingText {
-  -webkit-font-smoothing: none;
-  font-family: "Horgen";
-  font-size: 30vw;
-  color: var(--black);
-  display: inline-block;
-}
 
 .wrapperCoord {
   box-sizing: border-box;
   width: 100%;
   padding: calc(var(--padding) / 2) var(--padding);
-  padding-top: 200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
   font-size: 1.4rem;
   color: var(--black);
 }
+
 
 .scrollCord .icon {
   background-color: white;
@@ -509,13 +522,25 @@ menu .OutRange:hover .tertiary-button {
 
 .parallaxImg .wrapper {
   overflow: hidden;
-  border-radius: 1.14vw;
-
+  border-radius: var(--border-radius);
+  aspect-ratio: 3/2;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .parallaxImg img {
   width: 100%;
-  object-fit: cover;
+  transition-property: width;
+  transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+  transition-duration: 800ms;
+}
+
+
+.parallaxImg:hover img{
+  width: 105%;
 }
 
 /* #endregion */
@@ -526,6 +551,7 @@ menu .OutRange:hover .tertiary-button {
   margin: 0 var(--padding);
   margin-top: 15vh;
   width: calc(100% - var(--padding) * 2);
+  margin-bottom: 100vh;
 
 }
 
@@ -537,7 +563,8 @@ menu .OutRange:hover .tertiary-button {
 .paragraph .wrapper{
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  justify-content: left;
+  gap:30vw;
   width: 100%; 
 }
 
@@ -545,7 +572,7 @@ menu .OutRange:hover .tertiary-button {
   display: flex;
   align-items: center;
   justify-content: left;
-  gap: 3.428vw;
+  gap: 1.428vw;
 }
 
 .paragraph .wrapper2 .number{
@@ -553,159 +580,24 @@ menu .OutRange:hover .tertiary-button {
   color: var(--white);
   width: 6.85vw;
   height: 6.85vw;
-  font-size: 2.28vw;
+  font-size: 60px; /*2.28vw;*/ 
   border-radius: 60px;
   display: flex;
   align-items: center;
   justify-content:center;
 }
 .paragraph h1{
-  font-size: 7.314vw;
+  font-size: 86px;   /*7.314vw;*/ 
 }
 
 .paragraph p{
-  font-size: 1.6vw;
+  font-size: 24px; /*1.6vw;*/ 
 }
 
 .paragraph span{
-  font-size: 2.74vw;
+  font-size: 50px; /*2.74vw;*/ 
 }
 
 /* #endregion */
 
-/* #region siteSections */
 
-.siteSection{
-  margin: var(--auto-marign);
-  margin-top: 15vh;
-  margin-bottom: 15vh;
-  width: --auto-width;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.siteSection .LeftText{
-  height: 100vh;
-  width: 100%;
-  align-self: flex-start;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  flex-direction: column;
-  box-sizing: border-box;
-  padding: 5% 0;
-}
-
-.siteSection h1{
-  font-size: 4.62vw;
-  width: 100%;
-  margin:0px
-}
-.siteSection .pWrapper{
-  padding: 0;
-}
-.siteSection h2{
-  font-size: 1.77vw;
-  margin:0px;
-  margin-bottom: 0.5rem;
-}
-.siteSection p{
-  font-size: 1.77vw;
-  margin:0px
-}
-
-
-
-
-.siteSection .imgWrapper{
-display: flex;
-align-items: center;
-justify-content: space-between;
-flex-direction: column;
-gap: 60px;
-}
-
-.siteSection .parallaxImg{
-  margin: 0;
-  width: 100%;
-}
-
-.siteSection .parallaxImg .wrapper {
-  overflow: hidden;
-  border-radius: 1.14vw;
-  width: 90vh;
-  height: 90vh;
-
-}
-
-.siteSection .parallaxImg img {
-  width: 110%;
-  height: 110%;
-  object-fit: cover;
-}
-
-
-
-/* #endregion */
-
-/* #region RollingLink */
-
-.RollingLink h1 {
-  margin: 0;
-  font-size: 15vw;
-  line-height: 0.9em;
-  text-transform: uppercase;
-  white-space: nowrap;
-
-
-}
-
-.RollingLink .panel-auto {
-  height: auto;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-}
-
-.RollingLink{
-  padding-bottom: 15vw;
-}
-
-/* #endregion */
-
-/* #region blackSection */
-
-.blackSection{
-  box-sizing: border-box;
-  padding-top: var(--padding);  
-  background-color: var(--black);
-  width: 100%;
-}
-
-.blackSection .paragraph{
-  color: var(--white);
-}
-
-.blackSection .paragraph h1{
-  color: var(--white);
-  margin-top: 0;
-
-}
-
-.blackSection .paragraph .wrapper2 .number{
-  background-color: var(--white);
-  color: var(--black);
-}
-/* #endregion */
-
-
-/*
-TODO List:
-- modificare le scritte e i colori di cuberto mouse follower per le sezioni e la scritta che scorre
-- finire works
-- finire scrolling works
-- inventarsi qualcosa per un rimando all'about me
-- footer
-*/
