@@ -293,7 +293,7 @@ function preloader(){
       const loadingMask = document.querySelector(".thumb");
       loadingMask.style.width = 100 - currentValue + "%";
 
-      let delay = Math.floor(Math.random() * 200) + 50;
+      let delay = Math.floor(Math.random() * 300) + 50;
       setTimeout(updateCounter,delay)
     }
     updateCounter();
