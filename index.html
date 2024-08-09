@@ -9,26 +9,22 @@
   <link rel="stylesheet" type="text/css" href="style.css">
 
   <!--Font-->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Anta&family=DM+Sans:opsz,wght@9..40,500&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap" rel="stylesheet">
-
-
+  <link rel="preload" href="fonts/Devant Horgen.otf" as="font" type="font/otf" crossorigin="anonymous">
   <link rel="stylesheet" href="https://unpkg.com/mouse-follower@1/dist/mouse-follower.min.css">
-  
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/locomotive-scroll@3.5.4/dist/locomotive-scroll.css">
-    
-
 
 </head>
 
 
+  <div class="loading-screen" >
+    <div class="firstText text">
+      MOSCAFOLIO
+    </div>
+  </div>
+
 <body data-barba="wrapper" data-scroll-container>
   <!--Loading page for rounting-->
-  <div class="loading-screen" style="position: fixed; height: 100vh; width: 100vw; z-index: 100000; background-color: var(--black); top:0px">
 
-  </div>
 
   <!-- ------------------------------- Header -------------------------------- -->
   <header data-scroll-section >
@@ -131,7 +127,7 @@
   <!-- #endregion -->
 
   <section class="mainContent" data-scroll-section   data-barba="container" data-barba-namespace="home">
-      <div class="rollingText text">
+      <div class="firstText text">
         MOSCAFOLIO
       </div>
 
@@ -205,9 +201,58 @@
 
     </div>
 
-    <div class="3CardSections">
+    <div class="CardsSections">
+
+      <div class="card" data-scroll data-scroll-speed="-1">
+        <img src="src/3dPrintingImg.jpeg" data-cursor-text="Explore">
+        <div class="textWrapper">
+          <h1>3D Printing Projects</h1>
+          <p>Discover my ability to design, prototype, <br>
+            and bring to life complex ideas.<br>
+            Witness the journey from digital concept to <br>
+            tangible product.<br>
+          </p>
+        </div>
+      </div>
+
+      <div class="card" data-scroll data-scroll-speed="0">
+        <img src="src/UIUXImg.png" data-cursor-text="Explore">
+        <div class="textWrapper">
+          <h1>3D Printing Projects</h1>
+          <p>Discover my approach to crafting intuitive <br>
+            and engaging user interfaces and<br>
+            experiences.<br>
+            &nbsp
+          </p>
+        </div>
+      </div>
+
+      <div class="card" data-scroll data-scroll-speed="1">
+        <img src="src/HardwareImg.jpg" data-cursor-text="Explore">
+        <div class="textWrapper">
+          <h1>Hardware Projects</h1>
+          <p>Delve into my hardware projects that <br>
+            showcase my expertise in electronics and <br>
+             programming. From an idea to  building fully <br>
+             functional prototypes. <br>
+          </p>
+        </div>
+      </div>
 
     </div>
+
+    <div class="UsefullWebsites">
+
+      <h1></h1>
+      <p></p>
+      <div class="PreviewWrapper"></div>
+      <img>
+      <img>
+      <img>
+      <img>
+
+    </div>
+
   </section>
 
     

@@ -128,9 +128,13 @@ function initBarba(){
       name: 'default-transition',
       once(data) {
         initSmoothScroll(data.next.container);
-        return gsap.to(".loading-screen", {
-          delay: 1,
-          y: "-100%"
+        gsap.to(".loading-screen", {
+          delay:1,
+          duration: 0.3,  // Durata dell'animazione in secondi
+          opacity: 0,   // Imposta l'opacità a 0
+          onComplete: function() {
+            document.querySelector(".loading-screen").style.display = "none";
+          }
         });
       },
       leave(data) {
@@ -161,21 +165,28 @@ function initBarba(){
             // Se il browser non supporta lo scrolling smooth, utilizza un fallback
             window.scrollTo(0, 0);
           }
+          document.querySelector(".loading-screen").style.display = 'block';
         return gsap.to(".loading-screen", {
           delay: isOpen2? .5:0 ,
-          y: 0,
+          duration: 0.3,
+          opacity: 1,
           onComplete: () => {
             data.current.container.remove();
             isOpen2 = false
-            
           }
         }); 
       },
       enter(data) {
+        console.log("flick")
         return gsap.to(".loading-screen", {
-          delay: 1,
-          y: "-100%"
+            delay:1,
+            duration: 0.3,  // Durata dell'animazione in secondi
+            opacity: 0,   // Imposta l'opacità a 0
+            onComplete: function() {
+            document.querySelector(".loading-screen").style.display = "none";
+            }
         });
+        
       },
       async beforeEnter(data) {
         magnets.forEach((magnet) => {

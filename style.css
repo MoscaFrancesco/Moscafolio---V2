@@ -4,8 +4,7 @@
   --white: #ffffff;
   --secondaryWhite: #F5F2ED;
   --accent: #2a53ce;
-
-  --border-radius: 28px;
+  --border-radius: 0px;
 }
 
 @font-face {
@@ -16,7 +15,7 @@
 
 @font-face {
   font-family: "Satoshi";
-  src: url("fonts/Devant\Satoshi-Medium.otf");
+  src: url("fonts/Satoshi-Medium.otf");
 }
 
 
@@ -26,8 +25,13 @@ body {
   font-optical-sizing: auto;
   color: var(--black);
   font-weight: 500;
-  /* overflow-x: hidden; */
+  overflow-x: hidden; 
   -ms-overflow-style: none; /* IE e Edge */
+  scrollbar-width: none; /* Firefox */
+}
+
+::-webkit-scrollbar {
+  display: none;
 }
 
 body.menuOpen{
@@ -56,7 +60,33 @@ h1{
 }
 
 p{
+  color:--black;  
+  opacity: 80%;
   line-height: 130%;
+  margin: 0;
+  font-optical-sizing: auto;
+
+}
+
+.loading-screen{
+  position: fixed;
+  height: 100vh; 
+  width: 100vw; 
+  z-index: 100000; 
+  background-color: var(--black); 
+  top:0px;
+}
+
+.firstText{
+  font-family: "Horgen";
+  font-optical-sizing: auto;
+  font-size: 40vw;
+  color: var(--white);
+  margin-top: 100px; 
+  white-space: nowrap;
+  display: flex;
+  justify-content: center; 
+
 }
 
 
@@ -435,16 +465,9 @@ menu .OutRange:hover .tertiary-button {
 
 /* #region Moscafolio Text */
 
-.rollingText {
-  font-family: "Horgen";
-  font-optical-sizing: auto;
-  font-size: 40vw;
+
+.mainContent .firstText{
   color: var(--black);
-  margin-top: 100px; /*deve rimanere fisso, ho impostato la navbar a fixed*/
-  white-space: nowrap;
-  display: flex;
-  justify-content: center; /* Centra il testo orizzontalmente */
-  
 }
 
 
@@ -613,7 +636,6 @@ menu .OutRange:hover .tertiary-button {
 
 .AboutMe p {
   font-size: 2.45vw;
-  margin: 0;
 }
 
 .AboutMe span {
@@ -629,7 +651,6 @@ menu .OutRange:hover .tertiary-button {
 .paragraph{
   margin: 0 calc(var(--padding) + 1vw);
   margin-top: 20vh;
-  margin-bottom: 100vh;
 }
 
 
@@ -675,6 +696,57 @@ menu .OutRange:hover .tertiary-button {
 /* #endregion */
 
 /* #region 3 Cards */
+
+.CardsSections{
+  padding: 0 var(--padding);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+  margin-top: 20vh;
+  margin-bottom: 100vh;
+
+}
+
+.CardsSections .card{
+  display: flex;
+  align-content: center;
+  justify-content: space-between;
+  flex-direction: column;
+  gap:24px;
+  width: 100%;
+}
+
+
+.CardsSections .card img{
+  aspect-ratio: 1/1;
+  width:100%;
+  border-radius: var(--border-radius);
+}
+
+.CardsSections .card .textWrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap:16px;
+
+}
+
+.CardsSections .card h1{
+  font-size: 29px;
+  width: 100%;
+}
+
+
+.CardsSections .card p{
+  font-size: 21px;
+  width: 100%;
+}
+
+/* #endregion */
+
+/* #region UsefullWebsites */
 
 /* #endregion */
 
