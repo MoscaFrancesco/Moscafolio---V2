@@ -8,13 +8,26 @@
   --border-radius: 28px;
 }
 
+@font-face {
+  font-family: "Horgen";
+  src: url("fonts/Devant\ Horgen.otf");
+  
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("fonts/Devant\Satoshi-Medium.otf");
+}
+
+
 body {
   margin: 0;
-  font-family: "DM sans";
+  font-family: "Satoshi";
+  font-optical-sizing: auto;
+  color: var(--black);
   font-weight: 500;
-  overflow-x: hidden;
+  /* overflow-x: hidden; */
   -ms-overflow-style: none; /* IE e Edge */
-  scrollbar-width: none; /* Firefox */
 }
 
 body.menuOpen{
@@ -32,12 +45,20 @@ html,body{
 
 a {
   text-decoration: none;
-  color: black;
+  color: var(--black);
 }
 
-::-webkit-scrollbar {
-  display: none;
+h1{
+  font-optical-sizing: auto;
+  font-size: 124px;
+  margin: 0;
+  color: var(--black);
 }
+
+p{
+  line-height: 130%;
+}
+
 
 /* #region Header */
 
@@ -414,13 +435,9 @@ menu .OutRange:hover .tertiary-button {
 
 /* #region Moscafolio Text */
 
-@font-face {
-  font-family: "Horgen";
-  src: url("fonts/Devant\ Horgen.otf");
-}
-
 .rollingText {
   font-family: "Horgen";
+  font-optical-sizing: auto;
   font-size: 40vw;
   color: var(--black);
   margin-top: 100px; /*deve rimanere fisso, ho impostato la navbar a fixed*/
@@ -545,37 +562,93 @@ menu .OutRange:hover .tertiary-button {
 
 /* #endregion */
 
+/* #region AboutMe */
+
+
+.AboutMe{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 0 calc(var(--padding) + 1vw);
+  margin-top: 20vh;
+}
+
+.AboutMe h1{
+  justify-self: left;
+  width: 100%;
+  text-align: left;
+  margin-bottom: 72px;
+  font-size: 86px;
+
+}
+
+.AboutMe .wrapper{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap:80px;
+
+}
+
+.AboutMe .imgWrapper{
+  aspect-ratio: 1/1;
+  width: 26vw;
+  border-radius: 20vw;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.AboutMe .imgWrapper img{
+  width: 100%;
+}
+
+.AboutMe .pWrapper{
+  display: grid;
+  align-content: center;
+
+}
+
+.AboutMe p {
+  font-size: 2.45vw;
+  margin: 0;
+}
+
+.AboutMe span {
+  color: #2CCD64;
+  font-size: 2vw;
+  margin-top: 20px;
+}
+
+/* #endregion */
+
 /* #region paragraph */
 
 .paragraph{
-  margin: 0 var(--padding);
-  margin-top: 15vh;
-  width: calc(100% - var(--padding) * 2);
+  margin: 0 calc(var(--padding) + 1vw);
+  margin-top: 20vh;
   margin-bottom: 100vh;
-
 }
 
-
-.paragraph{
-  color: var(--black);
-}
 
 .paragraph .wrapper{
   display: flex;
   align-items: center;
-  justify-content: left;
-  gap:30vw;
+  justify-content: space-between;
   width: 100%; 
 }
 
-.paragraph .wrapper2{
+.paragraph .wrapperCategories{
   display: flex;
   align-items: center;
   justify-content: left;
   gap: 1.428vw;
+  width: 30%;
 }
 
-.paragraph .wrapper2 .number{
+.paragraph .wrapperCategories .number{
   background-color: var(--black);
   color: var(--white);
   width: 6.85vw;
@@ -588,15 +661,20 @@ menu .OutRange:hover .tertiary-button {
 }
 .paragraph h1{
   font-size: 86px;   /*7.314vw;*/ 
+  margin-bottom: 60px;
 }
 
 .paragraph p{
-  font-size: 24px; /*1.6vw;*/ 
+  font-size: 29px; /*1.6vw;*/ 
 }
 
 .paragraph span{
   font-size: 50px; /*2.74vw;*/ 
 }
+
+/* #endregion */
+
+/* #region 3 Cards */
 
 /* #endregion */
 
