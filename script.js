@@ -280,9 +280,38 @@ function fireScript(){
   initMenu(); 
 }
 
+function loading(){
+  const loadingText = document.querySelector(".firstText");
+  const percentageText = document.querySelector(".loading-percentage");
+
+  const resources = document.querySelectorAll('img, script, link[rel="stylesheet"], video, audio'); 
+  const totalResources = resources.length;
+  let loadedResources = 0;
+
+  function updateProgress() {
+      loadedResources++;
+      let progress = Math.floor((loadedResources / totalResources) * 100);
+      percentageText.textContent = `${progress}%`;
+      loadingText.style.backgroundSize = `${progress}% 100%`;
+
+      if (loadedResources === totalResources) {
+          document.querySelector(".loading-screen").style.display = "none";
+      }
+  }
+
+  resources.forEach(resource => {
+      if (resource.complete) {
+          updateProgress();
+      } else {
+          resource.addEventListener('load', updateProgress);
+          resource.addEventListener('error', updateProgress); // Consideriamo anche l'errore di caricamento
+      }
+  });
+}
 
 document.addEventListener("DOMContentLoaded", function () {
   initBarba();
+  loading();
 });
 
 
