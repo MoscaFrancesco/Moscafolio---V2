@@ -25,7 +25,7 @@ body {
   font-optical-sizing: auto;
   color: var(--black);
   font-weight: 500;
-  overflow-x: hidden; 
+  overflow-x: hidden;
   -ms-overflow-style: none; /* IE e Edge */
   scrollbar-width: none; /* Firefox */
 }
@@ -57,16 +57,20 @@ h1{
   font-size: 124px;
   margin: 0;
   color: var(--black);
+  line-height: 120%;
+  font-weight: bold;
 }
 
 p{
   color:--black;  
-  opacity: 80%;
+  opacity: 90%;
   line-height: 130%;
   margin: 0;
   font-optical-sizing: auto;
 
 }
+
+/* #region Loading */
 
 .loading-screen {
   position: fixed;
@@ -114,7 +118,7 @@ p{
   font-size: 3vw;
   color: var(--white);
 }
-
+/* #endregion */
 
 /* #region Header */
 
@@ -139,7 +143,7 @@ header nav {
   flex-direction: row;
 }
 
-.Link {
+nav .Link {
   width: 3.125rem;
   height: 1rem;
   color: var(--black);
@@ -159,12 +163,12 @@ nav .OutRange {
   align-items: center;
 }
 
-.OutRange:hover .textblock:after {
+nav .OutRange:hover .textblock:after {
   width: 110%;
   left: 0%;
 }
 
-.textblock:after {
+nav .textblock:after {
   content: "";
   pointer-events: none;
   bottom: -0.7rem;
@@ -737,8 +741,6 @@ menu .OutRange:hover .tertiary-button {
   justify-content: space-between;
   gap: 48px;
   margin-top: 20vh;
-  margin-bottom: 100vh;
-
 }
 
 .CardsSections .card{
@@ -781,6 +783,124 @@ menu .OutRange:hover .tertiary-button {
 
 /* #region UsefullWebsites */
 
+.UsefullWebsites{
+  margin-top: 20vh;
+}
+
+.UsefullWebsites h1{
+ font-size: 60px;
+ width: 100%;
+text-align: center;
+}
+
+.UsefullWebsites p{
+ font-size: 29px;
+ width: 100%;
+ text-align: center;
+ margin-top: 16px;
+
+}
+
+.UsefullWebsites .PreviewWrapper{
+  overflow-x: scroll !important;
+  display: flex;
+  padding-left: 150px;
+  margin-top: 60px;
+  gap: 40px;
+  padding-right: 150px;
+}
+
+.UsefullWebsites img{
+  width: 607px;
+  height: 390px;
+  background-color: #2a2a2a;
+  flex-shrink: 0; /* Aggiungi questa regola */
+}
+
+
 /* #endregion */
 
+/* #region Footer */
+
+footer{
+  margin-top: 15vw;
+  background-color: var(--black);
+  aspect-ratio: 15/9;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-direction: column;
+}
+
+footer .lastText{
+  color: var(--white);
+  font-family: "Horgen";
+  font-optical-sizing: auto;
+  font-size: 40vw;
+}
+
+
+footer .upperAlign{
+  width: 100%;
+  color: var(--white);
+  font-size: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc( var(--padding) / 2); 
+}
+
+footer .upperAlign p{
+  padding: 0 2vw;
+}
+
+footer .OutRange{
+  padding: calc( var(--padding) / 6);
+}
+
+footer .lowerAlign{
+  width: 100%;
+  color: var(--white);
+  font-size: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+footer .lowerAlign *{
+  color: var(--white);
+
+}
+
+footer .lowerAlign .social{
+  display: flex;
+  align-items: center;
+  justify-content: right;
+  width: 33%;
+  padding-right: 2vw;
+
+}
+
+footer .lowerAlign  .backToTop{
+  width: 33%; 
+  text-align: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap:10px
+}
+
+.backToTop img{
+  transform: rotate(180deg);
+  width: 24px;
+  
+}
+
+footer .lowerAlign .emailWrapper{
+  width: 33%;
+  box-sizing: border-box;
+  padding-left: 2vw;
+}
+/* #endregion */
 

@@ -258,19 +258,83 @@ function initHamAppear(){
     scroller: "[data-scroll-container]",
     trigger: ".HamTrigger",
     scrub: true,
-    start: "0 70%",
+    start: "0 30%",
     //markers: true,
     onEnter: () => gsap.to("ham.OutRange",{scale:1, duration:.3, ease:"power4.out",rotate: "0.001deg" }),
     onLeaveBack: () => gsap.to("ham.OutRange",{scale:0, duration:.3, ease: "power4.out",rotate: "0.001deg"})
   });
+
+  ScrollTrigger.create({
+    scroller: "[data-scroll-container]",
+    trigger: ".HamTriggerClose",
+    scrub: true,
+    start: "0 30%",
+    //markers: true,
+    onEnter: () => gsap.to("ham.OutRange",{scale:0, duration:.3, ease:"power4.out",rotate: "0.001deg" }),
+    onLeaveBack: () => gsap.to("ham.OutRange",{scale:1, duration:.3, ease: "power4.out",rotate: "0.001deg"})
+  });
 }
 
+function dragSection(){
+  // Seleziona il contenitore da scorrere
+const previewWrapper = document.querySelector('.PreviewWrapper');
+
+let isDown = false;
+let startX;
+let scrollLeft;
+
+// Event Listener per iniziare il dragging
+previewWrapper.addEventListener('mousedown', (e) => {
+  isDown = true;
+  previewWrapper.classList.add('active'); // Classe per indicare il dragging
+  startX = e.pageX - previewWrapper.offsetLeft;
+  scrollLeft = previewWrapper.scrollLeft;
+});
+
+previewWrapper.addEventListener('mouseleave', () => {
+  isDown = false;
+  previewWrapper.classList.remove('active');
+});
+
+previewWrapper.addEventListener('mouseup', () => {
+  isDown = false;
+  previewWrapper.classList.remove('active');
+});
+
+previewWrapper.addEventListener('mousemove', (e) => {
+  if (!isDown) return;
+  e.preventDefault();
+  const x = e.pageX - previewWrapper.offsetLeft;
+  const walk = (x - startX) *1.2; // La velocità del dragging
+  previewWrapper.scrollLeft = scrollLeft - walk;
+});
+
+// Supporto per touch
+previewWrapper.addEventListener('touchstart', (e) => {
+  isDown = true;
+  startX = e.touches[0].pageX - previewWrapper.offsetLeft;
+  scrollLeft = previewWrapper.scrollLeft;
+});
+
+previewWrapper.addEventListener('touchend', () => {
+  isDown = false;
+});
+
+previewWrapper.addEventListener('touchmove', (e) => {
+  if (!isDown) return;
+  const x = e.touches[0].pageX - previewWrapper.offsetLeft;
+  const walk = (x - startX) * 2;
+  previewWrapper.scrollLeft = scrollLeft - walk;
+});
+
+}
 
 function fireScript(){
   initHamAppear()
   initMagneticButtons();
   initCursor();
   initMenu(); 
+  dragSection();
 }
 
 function preloader(){
@@ -293,11 +357,13 @@ function preloader(){
       const loadingMask = document.querySelector(".thumb");
       loadingMask.style.width = 100 - currentValue + "%";
 
-      let delay = Math.floor(Math.random() * 300) + 50;
+      let delay = Math.floor(Math.random() * 0) + 50;
       setTimeout(updateCounter,delay)
     }
     updateCounter();
 } 
+
+
 
 document.addEventListener("DOMContentLoaded", function () {
   initBarba();
