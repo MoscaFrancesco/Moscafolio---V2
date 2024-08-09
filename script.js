@@ -111,6 +111,17 @@ function initMenu(){
 
 }
 
+function enterAnim(){
+  gsap.to(".loading-screen", {
+    delay:0.3,
+    duration: 0.3,  // Durata dell'animazione in secondi
+    opacity: 0,   // Imposta l'opacità a 0
+    onComplete: function() {
+      document.querySelector(".loading-screen").style.display = "none";
+    }
+  });
+}
+
 function initBarba(){
   console.log("inizializzo Barba")
 
@@ -128,14 +139,6 @@ function initBarba(){
       name: 'default-transition',
       once(data) {
         initSmoothScroll(data.next.container);
-        gsap.to(".loading-screen", {
-          delay:1,
-          duration: 0.3,  // Durata dell'animazione in secondi
-          opacity: 0,   // Imposta l'opacità a 0
-          onComplete: function() {
-            document.querySelector(".loading-screen").style.display = "none";
-          }
-        });
       },
       leave(data) {
 
@@ -176,19 +179,9 @@ function initBarba(){
           }
         }); 
       },
-      enter(data) {
-        console.log("flick")
-        return gsap.to(".loading-screen", {
-            delay:1,
-            duration: 0.3,  // Durata dell'animazione in secondi
-            opacity: 0,   // Imposta l'opacità a 0
-            onComplete: function() {
-            document.querySelector(".loading-screen").style.display = "none";
-            }
-        });
-        
-      },
       async beforeEnter(data) {
+        console.log("beforeEnter");
+
         magnets.forEach((magnet) => {
           const OuterMagneticRange = magnet.closest(".OutRange");
           OuterMagneticRange.removeEventListener("mousemove", moveMagnet);
@@ -275,43 +268,40 @@ function initHamAppear(){
 
 function fireScript(){
   initHamAppear()
-    initMagneticButtons();
+  initMagneticButtons();
   initCursor();
   initMenu(); 
 }
 
-function loading(){
-  const loadingText = document.querySelector(".firstText");
-  const percentageText = document.querySelector(".loading-percentage");
+function preloader(){
+    let counterPercent = document.querySelector(".counterPercent");
+    let currentValue=0;
 
-  const resources = document.querySelectorAll('img, script, link[rel="stylesheet"], video, audio'); 
-  const totalResources = resources.length;
-  let loadedResources = 0;
-
-  function updateProgress() {
-      loadedResources++;
-      let progress = Math.floor((loadedResources / totalResources) * 100);
-      percentageText.textContent = `${progress}%`;
-      loadingText.style.backgroundSize = `${progress}% 100%`;
-
-      if (loadedResources === totalResources) {
-          document.querySelector(".loading-screen").style.display = "none";
+    function updateCounter(){
+      if (currentValue === 100){ 
+        enterAnim();
+        return
       }
-  }
 
-  resources.forEach(resource => {
-      if (resource.complete) {
-          updateProgress();
-      } else {
-          resource.addEventListener('load', updateProgress);
-          resource.addEventListener('error', updateProgress); // Consideriamo anche l'errore di caricamento
+      currentValue += Math.floor(Math.random()*10) + 1;
+
+      if (currentValue > 100){
+        currentValue = 100;
       }
-  });
-}
+
+      counterPercent.textContent = currentValue;
+      const loadingMask = document.querySelector(".thumb");
+      loadingMask.style.width = 100 - currentValue + "%";
+
+      let delay = Math.floor(Math.random() * 200) + 50;
+      setTimeout(updateCounter,delay)
+    }
+    updateCounter();
+} 
 
 document.addEventListener("DOMContentLoaded", function () {
   initBarba();
-  loading();
+  preloader();
 });
 
 
