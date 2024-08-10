@@ -305,7 +305,7 @@ previewWrapper.addEventListener('mousemove', (e) => {
   if (!isDown) return;
   e.preventDefault();
   const x = e.pageX - previewWrapper.offsetLeft;
-  const walk = (x - startX) *1.2; // La velocità del dragging
+  const walk = (x - startX) *1; // La velocità del dragging
   previewWrapper.scrollLeft = scrollLeft - walk;
 });
 
@@ -368,6 +368,9 @@ function preloader(){
 document.addEventListener("DOMContentLoaded", function () {
   initBarba();
   preloader();
+  const viewportWidth = window.innerWidth;
+  const vw = viewportWidth / 100;
+  console.log("1vw è uguale a: " + vw + "px");
 });
 
 

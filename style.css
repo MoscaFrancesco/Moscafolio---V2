@@ -5,6 +5,7 @@
   --secondaryWhite: #F5F2ED;
   --accent: #2a53ce;
   --border-radius: 0px;
+
 }
 
 @font-face {
@@ -54,7 +55,7 @@ a {
 
 h1{
   font-optical-sizing: auto;
-  font-size: 124px;
+  font-size: 7.79vw;
   margin: 0;
   color: var(--black);
   line-height: 120%;
@@ -88,14 +89,14 @@ p{
   font-optical-sizing: auto;
   font-size: 40vw;
   color: var(--white);
-  margin-top: 100px; 
+  margin-top: 6.28vw; 
   position: absolute; 
-  -webkit-text-stroke: 4px var(--black);
+  -webkit-text-stroke: 0.25vw var(--black);
 }
 
 .loading-screen .firstText.over {
   color: transparent;
-  -webkit-text-stroke: 4px var(--white); 
+  -webkit-text-stroke: 0.25vw var(--white); 
   z-index: 1; 
 }
 
@@ -112,8 +113,8 @@ p{
 
 .counterPercent{
   position: absolute;
-  bottom: 20px;
-  right: 20px;
+  bottom: 1.25vw;
+  right: 1.25vw;
   font-family: "Horgen";
   font-size: 3vw;
   color: var(--white);
@@ -175,8 +176,8 @@ nav .textblock:after {
   left: 50%;
   position: absolute;
   width: 0%;
-  height: 2px;
-  border-radius: 50px;
+  height: 0.125vw;
+  border-radius: 3.14vw;
   background-color: var(--black);
   transition-timing-function: ease;
   transition-duration: 400ms;
@@ -192,8 +193,8 @@ menu.-active {
 
 
 .hamButton {
-  width: 85px;
-  height: 85px;
+  width: 5.34vw;
+  height: 5.34vw;
   background-color: var(--black);
   border-radius: 50%;
   position: absolute;
@@ -217,8 +218,8 @@ ham.OutRange {
   position: fixed;
   right: 0px;
   top: 0px;
-  width: 150px;
-  height: 150px;
+  width: 9.42vw;
+  height: 9.42vw;
   justify-content: center;
   align-items: center;
   border-radius: 50%;
@@ -230,7 +231,7 @@ ham.OutRange {
 ham .menu-btn_toggle {
   width: 100%;
   height: 100%;
-  padding: calc((100% - 24px) / 2);
+  padding: calc((100% - 1.5vw) / 2);
 }
 
 ham .menu-btn_toggle span {
@@ -249,16 +250,16 @@ ham .menu-btn_toggle span {
   border: none;
   background-color: transparent;
   display: block;
-  width: 24px;
-  height: 24px;
+  width: 1.5vw;
+  height: 1.5vw;
   z-index: 98;
 }
 
 .menu-btn_toggle span {
   display: block;
   width: 100%;
-  height: 2px;
-  margin: 6px 0;
+  height: 0.125vw;
+  margin: 0.377vw 0;
   position: relative;
   top: 0;
   background: var(--black);
@@ -271,12 +272,12 @@ ham .menu-btn_toggle span {
 }
 
 .menu-btn_toggle.-active span:first-child {
-  top: 4px;
+  top: 0.25vw;
   transform: rotate(45deg);
 }
 
 .menu-btn_toggle.-active span:last-child {
-  top: -4px;
+  top: -0.25vw;
   transform: rotate(-45deg);
 }
 
@@ -338,7 +339,7 @@ menu {
 
 .tertiary-button {
   text-decoration: none;
-  font-size: 30px;
+  font-size: 1.88vw;
   color: var(--white);
   white-space: nowrap;
   box-sizing: border-box;
@@ -381,7 +382,7 @@ menu .OutRange:hover .tertiary-button {
 
 .Contacts {
   height: calc(
-    30px + 0.5em + 6rem
+    1.88vw + 0.5em + 6rem
   ); /* sarebbe il padding + text height + half row height*/
   display: flex;
   align-items: center;
@@ -406,7 +407,7 @@ menu .OutRange:hover .tertiary-button {
 }
 
 .GiTwrapper .mail {
-  font-size: 16px;
+  font-size: 1vw;
   color: var(--accent);
 }
 
@@ -420,11 +421,11 @@ menu .OutRange:hover .tertiary-button {
 
 .secondary-button {
   text-decoration: none;
-  font-size: 30px;
+  font-size: 1vw;
   line-height: 1em;
   color: var(--white);
   overflow: hidden;
-  border-radius: 100px;
+  border-radius: 6.28vw;
   transition: transform 0.3s;
   padding: 1.5rem 3rem;
   box-sizing: border-box;
@@ -501,7 +502,7 @@ menu .OutRange:hover .tertiary-button {
   font-family: "Horgen";
   font-optical-sizing: auto;
   font-size: 40vw;
-  margin-top: 100px; 
+  margin-top: 6.28vw; 
   white-space: nowrap;
   display: flex;
   justify-content: center;
@@ -526,11 +527,11 @@ menu .OutRange:hover .tertiary-button {
 }
 
 .scrollCord {
-  width: 285px;
-  height: 50px;
+  width: 17.8vw;
+  height: 3.14vw;
   display: flex;
   align-items: center;
-  gap: 5px;
+  gap: 0.314vw;
   overflow: hidden;
   white-space: nowrap;
 }
@@ -548,11 +549,11 @@ menu .OutRange:hover .tertiary-button {
 }
 
 .scrollCord:hover .Text {
-  transform: translateX(calc(-100% - 5px));
+  transform: translateX(calc(-100% - 0.314vw));
 }
 
 .scrollCord:hover .TextToReveal {
-  transform: translateX(-260px);
+  transform: translateX(-16.33vw);
 }
 
 .scrollCord:hover .icon div {
@@ -567,7 +568,7 @@ menu .OutRange:hover .tertiary-button {
 
 .DiscoverWrappre img {
   height: 1.4rem;
-  margin-left: 10px;
+  margin-left: 0.628vw;
   animation: bounce 4s infinite;
 }
 
@@ -579,10 +580,10 @@ menu .OutRange:hover .tertiary-button {
     transform: translateY(0);
   }
   85% {
-    transform: translateY(-10px);
+    transform: translateY(-0.628vw);
   }
   95% {
-    transform: translateY(-5px);
+    transform: translateY(-0.314vw);
   }
 }
 
@@ -631,15 +632,15 @@ menu .OutRange:hover .tertiary-button {
   justify-content: center;
   flex-direction: column;
   padding: 0 calc(var(--padding) + 1vw);
-  margin-top: 20vh;
+  margin-top: 12vw;
 }
 
 .AboutMe h1{
   justify-self: left;
   width: 100%;
   text-align: left;
-  margin-bottom: 72px;
-  font-size: 86px;
+  margin-bottom: 4.52vw;
+  font-size: 5.4vw;
 
 }
 
@@ -647,7 +648,7 @@ menu .OutRange:hover .tertiary-button {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap:80px;
+  gap:5vw;
 
 }
 
@@ -678,7 +679,7 @@ menu .OutRange:hover .tertiary-button {
 .AboutMe span {
   color: #2CCD64;
   font-size: 2vw;
-  margin-top: 20px;
+  margin-top: 1.25vw;
 }
 
 /* #endregion */
@@ -687,7 +688,7 @@ menu .OutRange:hover .tertiary-button {
 
 .paragraph{
   margin: 0 calc(var(--padding) + 1vw);
-  margin-top: 20vh;
+  margin-top: 12vw;
 }
 
 
@@ -711,23 +712,23 @@ menu .OutRange:hover .tertiary-button {
   color: var(--white);
   width: 6.85vw;
   height: 6.85vw;
-  font-size: 60px; /*2.28vw;*/ 
-  border-radius: 60px;
+  font-size: 3.77vw; /*2.28vw;*/ 
+  border-radius: 3.77vw;
   display: flex;
   align-items: center;
   justify-content:center;
 }
 .paragraph h1{
-  font-size: 86px;   /*7.314vw;*/ 
-  margin-bottom: 60px;
+  font-size: 5.4vw;   /*7.314vw;*/ 
+  margin-bottom: 3.77vw;
 }
 
 .paragraph p{
-  font-size: 29px; /*1.6vw;*/ 
+  font-size: 1.82vw; /*1.6vw;*/ 
 }
 
 .paragraph span{
-  font-size: 50px; /*2.74vw;*/ 
+  font-size: 3.14vw; /*2.74vw;*/ 
 }
 
 /* #endregion */
@@ -739,8 +740,8 @@ menu .OutRange:hover .tertiary-button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 48px;
-  margin-top: 20vh;
+  gap: 3vw;
+  margin-top: 12vw;
 }
 
 .CardsSections .card{
@@ -748,7 +749,7 @@ menu .OutRange:hover .tertiary-button {
   align-content: center;
   justify-content: space-between;
   flex-direction: column;
-  gap:24px;
+  gap:1.5vw;
   width: 100%;
 }
 
@@ -764,18 +765,18 @@ menu .OutRange:hover .tertiary-button {
   align-items: center;
   justify-content: center;
   flex-direction: column;
-  gap:16px;
+  gap:1vw;
 
 }
 
 .CardsSections .card h1{
-  font-size: 29px;
+  font-size: 1.82vw;
   width: 100%;
 }
 
 
 .CardsSections .card p{
-  font-size: 21px;
+  font-size: 1.25vw;
   width: 100%;
 }
 
@@ -783,37 +784,40 @@ menu .OutRange:hover .tertiary-button {
 
 /* #region UsefullWebsites */
 
+/* ------------------------- 1vw è uguale a: 15.92px ------------------------ */
+
+
 .UsefullWebsites{
-  margin-top: 20vh;
+  margin-top: 12vw;
 }
 
 .UsefullWebsites h1{
- font-size: 60px;
+ font-size: 3.77vw;
  width: 100%;
 text-align: center;
 }
 
 .UsefullWebsites p{
- font-size: 29px;
+ font-size: 1.82vw;
  width: 100%;
  text-align: center;
- margin-top: 16px;
+ margin-top: 1vw;
 
 }
 
 .UsefullWebsites .PreviewWrapper{
   overflow-x: scroll !important;
   display: flex;
-  padding-left: 150px;
-  margin-top: 60px;
-  gap: 40px;
-  padding-right: 150px;
+  padding-left: 9.42vw;
+  margin-top: 3.77vw;
+  gap: 2.5vw;
+  padding-right: 9.42vw;
 }
 
 .UsefullWebsites img{
-  width: 607px;
-  height: 390px;
-  background-color: #2a2a2a;
+  width: 38.12vw;
+  height: 24.5vw;
+  background-color: var(--secondaryWhite);
   flex-shrink: 0; /* Aggiungi questa regola */
 }
 
@@ -844,7 +848,7 @@ footer .lastText{
 footer .upperAlign{
   width: 100%;
   color: var(--white);
-  font-size: 24px;
+  font-size: 1.5vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -862,7 +866,7 @@ footer .OutRange{
 footer .lowerAlign{
   width: 100%;
   color: var(--white);
-  font-size: 20px;
+  font-size: 1.25vw;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -888,12 +892,12 @@ footer .lowerAlign  .backToTop{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap:10px
+  gap: 0.63vw;
 }
 
 .backToTop img{
   transform: rotate(180deg);
-  width: 24px;
+  width: 1.5vw;
   
 }
 
